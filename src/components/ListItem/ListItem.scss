@@ -1,0 +1,42 @@
+.list--item{
+    .list--item-content{
+        border: 1px solid #efefef;
+        border-radius: 3px;
+
+        .list--item-img{
+            font-size: 0;
+            img{
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+
+        .list--item-info{
+            padding: 10px;
+
+            .list--item-title{
+                font-size: 18px;
+                line-height: 24px;
+                margin-bottom: 8px;
+            }
+
+            .list--item-desc{
+                font-size: 14px;
+                line-height: 20px;
+                margin-bottom: 8px;
+            }
+
+            .list--item-action{
+                width: 100%;
+                .btn{
+                    width: 100%;
+                    line-height: 32px;
+                }
+            }
+
+        }
+    }
+
+
+}
