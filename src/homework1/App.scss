@@ -3,7 +3,6 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-size: 14px;
-    min-width: 320px;
 }
 
 .container{
@@ -12,9 +11,9 @@ body{
     margin: auto;
 }
 
-// .content--main{
-//     padding: 20px 0 ;
-// }
+.content--main{
+    padding: 20px 0 ;
+}
 
 p{
     margin: 0;
