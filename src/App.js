@@ -1,19 +1,16 @@
 import './App.scss';
 
-import Header from "./containers/Layout/Header/Header";
-import Footer from "./containers/Layout/Footer/Footer";
-import List from "./containers/List/List";
+import Authentication from "./containers/Authentication/Authentication";
 
 function App() {
   return (
     <div className="App">
-        <Header />
         <main className="content--main">
-          <List />
+          <Authentication />
         </main>
-        <Footer />
     </div>
   );
 }
 
 export default App;
+
