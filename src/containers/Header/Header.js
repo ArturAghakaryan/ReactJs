@@ -2,7 +2,7 @@ import React from "react"
 
 import "./Header.scss"
 
-const Header = ( ) => {
+const Header = (props) => {
     return(
         <header className="header-main">
             <div className="container">
@@ -13,10 +13,10 @@ const Header = ( ) => {
                     <div className="header-nav">
                         <ul className="nav-item-list">
                             <li className="nav-item">
-                                <button className="nav-item-btn">Sing in</button>
+                                <button className="nav-item-btn" onClick={props.openLoginModal}>Sing in</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-item-btn">Sing up</button>
+                                <button className="nav-item-btn" onClick={props.openRegistrModal}>Sing up</button>
                             </li>
                         </ul>
                     </div>
