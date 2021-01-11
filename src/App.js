@@ -1,11 +1,11 @@
 import React,  { useState } from 'react'
 
-import './App.scss';
-
 import Layout from "./components/Layout/Layout"
 import Header from "./containers/Header/Header"
 import Footer from "./containers/Footer/Footer"
 import Authentication from "./containers/Authentication/Authentication"
+
+import './App.scss';
 
 function App() {
 
