@@ -16,7 +16,13 @@ function App() {
       if(isOpenRegistr === true){
         openRegistr(false);
       }
-      
+
+      if(!isOpenLogin){
+        document.body.classList.add('no-scroll')
+      }else{
+        document.body.classList.remove('no-scroll')
+      }
+
       openLogin(!isOpenLogin ? true : false);
   }
 
@@ -25,7 +31,13 @@ function App() {
         openLogin(false);
       }
 
-      openRegistr(isOpenRegistr ? false : true);
+      if(!isOpenRegistr){
+        document.body.classList.add('no-scroll')
+      }else{
+        document.body.classList.remove('no-scroll')
+      }
+
+      openRegistr(!isOpenRegistr ? true : false);
   }
 
   return (
@@ -43,7 +55,7 @@ function App() {
               </div>
             </section>
           </div>
-          <Authentication isOpenLogin={isOpenLogin} isOpenRegistr={isOpenRegistr}/>
+          <Authentication openLoginModal={openLoginModal}  isOpenLogin={isOpenLogin} openRegistrModal={openRegistrModal} isOpenRegistr={isOpenRegistr}/>
         </Layout>
         <Footer />
     </div>

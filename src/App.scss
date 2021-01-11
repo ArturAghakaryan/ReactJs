@@ -4,6 +4,11 @@ body{
     box-sizing: border-box;
     font-size: 14px;
     min-width: 320px;
+    font-family: 'Montserrat', sans-serif;
+    
+    &.no-scroll{
+        overflow-y: hidden;
+    }
 }
 
 .container{
@@ -12,3 +17,11 @@ body{
     margin: auto;
 }
 
+
+.close-icon{
+    width: 20px;
+    height: 20px;
+    background: url('./assest/icon/close-button.svg') no-repeat center;
+    background-size: contain;
+    display: block;
+}

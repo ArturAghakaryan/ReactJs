@@ -3,6 +3,13 @@ import React from "react"
 import "./Header.scss"
 
 const Header = (props) => {
+
+   
+    window.addEventListener('scroll', (event) => {
+        let scrollTop = window.scrollY;
+        document.getElementsByClassName('header-main')[0].classList[scrollTop > 0 ? 'add' : 'remove']('is-sticky')
+      });
+
     return(
         <header className="header-main">
             <div className="container">
