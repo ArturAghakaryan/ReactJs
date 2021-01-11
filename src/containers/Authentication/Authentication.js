@@ -5,27 +5,35 @@ import Register from "./Register/Register";
 
 import "./Authentication.scss";
 
-const Authentication = ({isOpenLogin , isOpenRegistr ,openLoginModal ,openRegistrModal}) => {
-  
+const Authentication = ({
+  isOpenLogin,
+  isOpenRegistr,
+  openLoginModal,
+  openRegistrModal,
+}) => {
   return (
-    <div className="authentication-modals">
-      {isOpenLogin && (
-        <div className="login-modal">
-          <Login
-            openLoginModal={openLoginModal}
-            openRegistrModal={openRegistrModal}
-          />
+    <>
+      {isOpenLogin || isOpenRegistr ? (
+        <div className="authentication-modals">
+          {isOpenLogin && (
+            <div className="login-modal">
+              <Login
+                openLoginModal={openLoginModal}
+                openRegistrModal={openRegistrModal}
+              />
+            </div>
+          )}
+          {isOpenRegistr && (
+            <div className="registr-modal">
+              <Register
+                openLoginModal={openLoginModal}
+                openRegistrModal={openRegistrModal}
+              />
+            </div>
+          )}
         </div>
-      )}
-      {isOpenRegistr && (
-        <div className="registr-modal">
-          <Register
-            openLoginModal={openLoginModal}
-            openRegistrModal={openRegistrModal}
-          />
-        </div>
-      )}
-    </div>
+      ) : null}
+    </>
   );
 };
 

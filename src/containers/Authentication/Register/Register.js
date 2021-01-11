@@ -2,12 +2,13 @@ import React from "react";
 
 import Field from "../../../components/Field/Field";
 import useForm from "../../../Util/useForm";
+import validate from "../../../Util/validate";
 
 import "./Register.scss";
 
 const Register = (props) => {
     
-  const { HandleChange, values, HandleSubmit } = useForm();
+  const { HandleChange, values, HandleSubmit, errors } = useForm(validate);
 
   return (
     <div className="register--form">
@@ -23,9 +24,9 @@ const Register = (props) => {
             placeholder="Entry your username..."
             label="Username"
             id="username"
-            class={""}
             values={values.username}
             onChange={HandleChange}
+            error={errors.username}
           />
         </div>
         <div className="form-row">
@@ -37,6 +38,7 @@ const Register = (props) => {
             id="Email"
             values={values.email}
             onChange={HandleChange}
+            error={errors.email}
           />
         </div>
         <div className="form-row">
@@ -48,6 +50,7 @@ const Register = (props) => {
             id="password"
             values={values.password}
             onChange={HandleChange}
+            error={errors.password}
           />
         </div>
         <div className="form-row">
@@ -59,6 +62,7 @@ const Register = (props) => {
             id="confirmPassword"
             values={values.password2}
             onChange={HandleChange}
+            error={errors.password2}
           />
         </div>
 

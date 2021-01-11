@@ -2,18 +2,33 @@ import React from "react";
 
 import "./Field.scss";
 
-function Field(props) {
+function Field({
+  label,
+  id,
+  type,
+  onChange,
+  placeholder,
+  name,
+  values,
+  className,
+  error,
+}) {
   return (
-    <div className={`fild--grup  ${props.class}`}>
-      {props.label && <label htmlFor={props.id}>{props.label}</label>}
+    <div
+      className={`fild--grup ${className ? className : ""}${
+        error ? " is-error" : ""
+      }`}
+    >
+      {label && <label htmlFor={id}>{label}</label>}
       <input
-        type={props.type}
-        id={props.id}
-        placeholder={props.placeholder}
-        name={props.name}
-        value={props.values}
-        onChange={props.onChange}
+        type={type}
+        id={id}
+        placeholder={placeholder}
+        name={name}
+        value={values}
+        onChange={onChange}
       />
+      {error && <span>{error}</span>}
     </div>
   );
 }
