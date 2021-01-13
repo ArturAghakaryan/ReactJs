@@ -1,66 +1,78 @@
-import React,  { useState } from 'react'
+import React, { useState } from "react";
 
-import './App.scss';
+import Layout from "./components/Layout/Layout";
+import Header from "./containers/Header/Header";
+import Footer from "./containers/Footer/Footer";
+import Authentication from "./containers/Authentication/Authentication";
+import Home from "./containers/Home/Home";
+import Listing from "./containers/Listing/Listing";
 
-import Layout from "./components/Layout/Layout"
-import Header from "./containers/Header/Header"
-import Footer from "./containers/Footer/Footer"
-import Authentication from "./containers/Authentication/Authentication"
+import "./App.scss";
 
 function App() {
-
-  const [isOpenLogin , openLogin] = useState(false)
-  const [isOpenRegistr , openRegistr] = useState(false)
+  const [isOpenLogin, openLogin] = useState(false);
+  const [isOpenRegistr, openRegistr] = useState(false);
+  const [isOpenListing, openListing] = useState(false);
 
   const openLoginModal = () => {
-      if(isOpenRegistr === true){
-        openRegistr(false);
-      }
+    if (isOpenRegistr === true) {
+      openRegistr(false);
+    }
 
-      if(!isOpenLogin){
-        document.body.classList.add('no-scroll')
-      }else{
-        document.body.classList.remove('no-scroll')
-      }
+    if (!isOpenLogin) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
 
-      openLogin(!isOpenLogin ? true : false);
-  }
+    openLogin(!isOpenLogin ? true : false);
+  };
 
   const openRegistrModal = () => {
-      if(isOpenLogin === true){
-        openLogin(false);
-      }
+    if (isOpenLogin === true) {
+      openLogin(false);
+    }
 
-      if(!isOpenRegistr){
-        document.body.classList.add('no-scroll')
-      }else{
-        document.body.classList.remove('no-scroll')
-      }
+    if (!isOpenRegistr) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
 
-      openRegistr(!isOpenRegistr ? true : false);
-  }
+    openRegistr(!isOpenRegistr ? true : false);
+  };
+
+  const openListingPage = () => {
+
+    if (!isOpenListing) {
+      document.body.classList.add("is-ctl-listing");
+    } else {
+      document.body.classList.remove("is-ctl-listing");
+    }
+
+    openListing(!isOpenListing ? true : false);
+
+  };
 
   return (
     <div className="App">
-        <Header openLoginModal={openLoginModal} openRegistrModal={openRegistrModal}/>
-        <Layout>
-          <div className="content-main">
-            <section className="welcome-content">
-              <div className="welcome-bg"></div>
-              <div className="welcome-info">
-                <div className="welcome-info-content">
-                  <h2>Welcome !</h2>
-                  <p>my first React project</p>
-                </div>
-              </div>
-            </section>
-          </div>
-          <Authentication openLoginModal={openLoginModal}  isOpenLogin={isOpenLogin} openRegistrModal={openRegistrModal} isOpenRegistr={isOpenRegistr}/>
-        </Layout>
-        <Footer />
+      <Header
+        openLoginModal={openLoginModal}
+        openRegistrModal={openRegistrModal}
+        openListingPage={openListingPage}
+      />
+      <Layout>
+        {!isOpenListing ? <Home /> : <Listing />}
+        <Authentication
+          openLoginModal={openLoginModal}
+          isOpenLogin={isOpenLogin}
+          openRegistrModal={openRegistrModal}
+          isOpenRegistr={isOpenRegistr}
+        />
+      </Layout>
+      <Footer />
     </div>
   );
 }
 
 export default App;
-

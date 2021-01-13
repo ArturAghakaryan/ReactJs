@@ -1,23 +1,40 @@
-import React from "react"
+import React from "react";
 
-import "./Authentication.scss"
+import Login from "./Login/Login";
+import Register from "./Register/Register";
 
-import  Login  from  '../Login/Login';
-import  Register  from  '../Register/Register';
+import "./Authentication.scss";
 
-
-const Authentication = (props) => {
-    return(
-        <div className="authentication-modal">
-            <div className={`login-modal${props.isOpenLogin ? "" : " is-hidden"}`}>
-                <Login openLoginModal={props.openLoginModal}  openRegistrModal={props.openRegistrModal} />
+const Authentication = ({
+  isOpenLogin,
+  isOpenRegistr,
+  openLoginModal,
+  openRegistrModal,
+}) => {
+  return (
+    <>
+      {isOpenLogin || isOpenRegistr ? (
+        <div className="authentication-modals">
+          {isOpenLogin && (
+            <div className="login-modal">
+              <Login
+                openLoginModal={openLoginModal}
+                openRegistrModal={openRegistrModal}
+              />
             </div>
-            <div className={`registr-modal${props.isOpenRegistr ? "" : " is-hidden"}`}>
-                <Register openLoginModal={props.openLoginModal}  openRegistrModal={props.openRegistrModal} />
+          )}
+          {isOpenRegistr && (
+            <div className="registr-modal">
+              <Register
+                openLoginModal={openLoginModal}
+                openRegistrModal={openRegistrModal}
+              />
             </div>
+          )}
         </div>
-    )
-}
+      ) : null}
+    </>
+  );
+};
 
-
-export default Authentication ;
+export default Authentication;

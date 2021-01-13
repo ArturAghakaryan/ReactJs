@@ -5,7 +5,9 @@ import "./Layout.scss"
 const Layout = ({children}) => {
     return(
         <div className="content-inner">
-            {children}
+            <div className="content-main">
+                {children}
+            </div>
         </div>
     )
 }
