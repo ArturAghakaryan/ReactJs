@@ -15,10 +15,17 @@ const Header = (props) => {
       <div className="container">
         <div className="header-content">
           <div className="logo-content">
-            <span>Logo</span>
+            <span  onClick={props.openListingPage} >Logo</span>
           </div>
           <div className="header-nav">
             <ul className="nav-item-list">
+
+              <li className="nav-item">
+                <span className="nav-item-link" onClick={props.openListingPage}>
+                    Products
+                </span>
+              </li>
+
               <li className="nav-item">
                 <button className="nav-item-btn" onClick={props.openLoginModal}>
                   Sing in

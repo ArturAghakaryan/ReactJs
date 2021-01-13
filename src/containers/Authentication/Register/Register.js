@@ -1,8 +1,8 @@
 import React from "react";
 
 import Field from "../../../components/Field/Field";
-import useForm from "../../../Util/useForm";
-import validate from "../../../Util/validate";
+import useForm from "../../../util/useForm";
+import validate from "../../../util/validate";
 
 import "./Register.scss";
 
