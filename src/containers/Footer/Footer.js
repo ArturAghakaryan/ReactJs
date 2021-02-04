@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer-main">
       <div className="container">
         <p className="copyright">
-          <strong>©</strong> Copyright 2020 | Artur Aghakryan
+          <strong>©</strong> Copyright 2021 | Artur Aghakryan
         </p>
       </div>
     </footer>

@@ -1,0 +1,9 @@
+.input-field {
+  padding: 10px 20px;
+  border-radius: 6px;
+
+  &.is-error {
+    background: #ffdddd;
+    border-color: #de5454;
+  }
+}

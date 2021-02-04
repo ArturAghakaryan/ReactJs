@@ -1,16 +1,13 @@
-import React from "react"
+import React from "react";
 
-import "./Layout.scss"
+import "./Layout.scss";
 
-const Layout = ({children}) => {
-    return(
-        <div className="content-inner">
-            <div className="content-main">
-                {children}
-            </div>
-        </div>
-    )
-}
-  
+const Layout = ({ children }) => {
+  return (
+    <div className="content-main">
+      <div className="content-inner">{children}</div>
+    </div>
+  );
+};
+
 export default Layout;
-  

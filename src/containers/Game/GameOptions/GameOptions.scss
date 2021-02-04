@@ -1,0 +1,111 @@
+.game-options__container-grid {
+  width: 100%;
+  max-width: 471px;
+  flex: 1 1;
+  position: relative;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 157px);
+  grid-template-rows: repeat(5, 83px);
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+
+.game-options {
+  height: calc(100% - 212px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-option__items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .game-option__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    .game-option__item-title {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 50px;
+      font-size: 20px;
+    }
+
+    &.item-winner {
+      .game-option__item-option {
+        box-shadow: inset 0px 8px rgb(63 55 55 / 10%),
+          0px 0px 0px 50px rgb(220 220 220 / 8%),
+          0px 0px 0px 100px rgb(220 220 220 / 5%),
+          0px 0px 0px 150px rgb(220 220 220 / 3%);
+        border-radius: 50%;
+      }
+    }
+
+    &.item-result {
+      span {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        font-size: 40px;
+      }
+
+      .btn {
+        background-color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 13px;
+        min-width: 156px;
+      }
+    }
+
+    &.item-timer {
+      margin-left: 216px;
+      .game-option {
+        margin-top: 75.44px;
+        background: radial-gradient(circle, #1f3756 0%, #141539 100%);
+        font-weight: 700;
+        font-size: 40px;
+      }
+    }
+
+    .game-option {
+      width: 200px;
+      height: 200px;
+
+      svg {
+        transform: scale(2);
+      }
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.game-option__timer {
+  .game-option {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #1f3756 0%, #141539 100%);
+    font-weight: 700;
+    font-size: 40px;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}

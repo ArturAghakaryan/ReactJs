@@ -1,0 +1,29 @@
+.select-game-variant {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .select-game-variant__text{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 100px;
+    font-size: 40px;
+
+    .is-error{
+      color: red;
+      display: block;
+      margin-top: 5px;
+      font-size: 24px;
+      text-align: center;
+    }
+  }
+}
+
+.restart-game{
+    position: absolute;
+    right: 146px;
+    top: 90px;
+}

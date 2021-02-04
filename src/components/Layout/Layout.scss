@@ -1,0 +1,11 @@
+.content-main {
+  height: calc(100vh - 44px);
+
+  .content-inner{
+    height: 100%;
+
+    .container{
+      height: 100%;
+    }
+  }
+}

@@ -1,14 +1,16 @@
 body {
   margin: 0;
   padding: 0;
+  letter-spacing: 1px;
   box-sizing: border-box;
-  font-size: 14px;
-  min-width: 320px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  color: white;
+  background: radial-gradient(circle, #1f3756 0%, #141539 100%);
 }
 
 .container {
   max-width: 1400px;
   padding: 0 20px;
   margin: auto;
+  overflow: hidden;
 }

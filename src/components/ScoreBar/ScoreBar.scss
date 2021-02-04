@@ -1,0 +1,43 @@
+.score-bar {
+  max-width: 700px;
+  margin: 20px auto;
+  border: 3px solid #606e85;
+  border-radius: 0.4rem;
+  padding: 20px;
+  background: radial-gradient(circle, #1f3756 0%, #141539 100%);
+  
+  .score-bar__inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .score-bar__title {
+    font-size: 40px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  .score-bar__scorebox {
+    background-color: white;
+    color: #2a46c0;
+    padding: 20px 20px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 500;
+    justify-content: center;
+    min-width: 80px;
+
+    &-count{
+        font-size: 40px;
+        color: #606e85;
+        font-weight: 700;
+    }
+  }
+}
