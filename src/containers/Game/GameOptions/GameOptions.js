@@ -90,10 +90,7 @@ class GameOptions extends React.Component {
     let PlayerOneSelection = null;
     let PlayerTwoSelection = null;
 
-    if (
-      this.state.gameMode === player.multi &&
-      this.state.playerOneSelection
-    ) {
+    if (this.state.gameMode === player.multi && this.state.playerOneSelection) {
       PlayerOneSelection = this.state.playerOneSelection;
       PlayerTwoSelection = selection;
     } else {
@@ -203,33 +200,36 @@ class GameOptions extends React.Component {
         <div className="game-options">
           <div className="game-options__container">
             {!playerOneSelection && (
-              <div className="game-options__container-grid">
-                <img src={Triangele} alt="triangle" />
-                <GameOption
-                  Icon={optionsMap[choice.paper].icon}
-                  color={optionsMap[choice.paper].color}
-                  boxShadow={optionsMap[choice.paper].boxShadow}
-                  onClick={() => {
-                    this.play(choice.paper);
-                  }}
-                />
-                <GameOption
-                  Icon={optionsMap[choice.scissers].icon}
-                  color={optionsMap[choice.scissers].color}
-                  boxShadow={optionsMap[choice.scissers].boxShadow}
-                  onClick={() => {
-                    this.play(choice.scissers);
-                  }}
-                />
-                <GameOption
-                  Icon={optionsMap[choice.rock].icon}
-                  color={optionsMap[choice.rock].color}
-                  boxShadow={optionsMap[choice.rock].boxShadow}
-                  onClick={() => {
-                    this.play(choice.rock);
-                  }}
-                />
-              </div>
+              <>
+                <div className="game-option__text">{playerOneName} select your variant!</div>
+                <div className="game-options__container-grid">
+                  <img src={Triangele} alt="triangle" />
+                  <GameOption
+                    Icon={optionsMap[choice.paper].icon}
+                    color={optionsMap[choice.paper].color}
+                    boxShadow={optionsMap[choice.paper].boxShadow}
+                    onClick={() => {
+                      this.play(choice.paper);
+                    }}
+                  />
+                  <GameOption
+                    Icon={optionsMap[choice.scissers].icon}
+                    color={optionsMap[choice.scissers].color}
+                    boxShadow={optionsMap[choice.scissers].boxShadow}
+                    onClick={() => {
+                      this.play(choice.scissers);
+                    }}
+                  />
+                  <GameOption
+                    Icon={optionsMap[choice.rock].icon}
+                    color={optionsMap[choice.rock].color}
+                    boxShadow={optionsMap[choice.rock].boxShadow}
+                    onClick={() => {
+                      this.play(choice.rock);
+                    }}
+                  />
+                </div>
+              </>
             )}
             {playerOneSelection &&
               !playerTwoSelection &&
@@ -240,33 +240,38 @@ class GameOptions extends React.Component {
                       <div className="game-option">{timer}</div>
                     </div>
                   ) : (
-                    <div className="game-options__container-grid">
-                      <img src={Triangele} alt="triangle" />
-                      <GameOption
-                        Icon={optionsMap[choice.paper].icon}
-                        color={optionsMap[choice.paper].color}
-                        boxShadow={optionsMap[choice.paper].boxShadow}
-                        onClick={() => {
-                          this.play(choice.paper);
-                        }}
-                      />
-                      <GameOption
-                        Icon={optionsMap[choice.scissers].icon}
-                        color={optionsMap[choice.scissers].color}
-                        boxShadow={optionsMap[choice.scissers].boxShadow}
-                        onClick={() => {
-                          this.play(choice.scissers);
-                        }}
-                      />
-                      <GameOption
-                        Icon={optionsMap[choice.rock].icon}
-                        color={optionsMap[choice.rock].color}
-                        boxShadow={optionsMap[choice.rock].boxShadow}
-                        onClick={() => {
-                          this.play(choice.rock);
-                        }}
-                      />
-                    </div>
+                    <>
+                      <div className="game-option__text">
+                        {playerTwoName} select your variant!
+                      </div>
+                      <div className="game-options__container-grid">
+                        <img src={Triangele} alt="triangle" />
+                        <GameOption
+                          Icon={optionsMap[choice.paper].icon}
+                          color={optionsMap[choice.paper].color}
+                          boxShadow={optionsMap[choice.paper].boxShadow}
+                          onClick={() => {
+                            this.play(choice.paper);
+                          }}
+                        />
+                        <GameOption
+                          Icon={optionsMap[choice.scissers].icon}
+                          color={optionsMap[choice.scissers].color}
+                          boxShadow={optionsMap[choice.scissers].boxShadow}
+                          onClick={() => {
+                            this.play(choice.scissers);
+                          }}
+                        />
+                        <GameOption
+                          Icon={optionsMap[choice.rock].icon}
+                          color={optionsMap[choice.rock].color}
+                          boxShadow={optionsMap[choice.rock].boxShadow}
+                          onClick={() => {
+                            this.play(choice.rock);
+                          }}
+                        />
+                      </div>
+                    </>
                   )}
                 </>
               )}
