@@ -111,7 +111,7 @@ class Game extends React.Component {
                     this.selectModeGame(player.multi);
                   }}
                 >
-                  Two player
+                  Two players
                 </Button>
               </div>
             </>
