@@ -103,7 +103,7 @@ class Game extends React.Component {
                     this.selectVariantGame(player.single);
                   }}
                 >
-                  Oan player
+                  One player
                 </Button>
                 <Button
                   onClick={() => {
