@@ -44,7 +44,7 @@ const optionsMap = {
 const initialState = {
   playerOneSelection: null,
   playerTwoSelection: null,
-  gameVariant: null,
+  gameMode: null,
   isTimerOn: false,
   winnerText: null,
   winnerStatus: null,
@@ -61,7 +61,7 @@ class GameOptions extends React.Component {
       playerTwoScore: 0,
       playerOneName: props.playerOneName,
       playerTwoName: props.playerTwoName ? props.playerTwoName : "Computer",
-      gameVariant: props.gameVariant ?? null,
+      gameMode: props.gameMode ?? null,
     };
   }
 
@@ -70,7 +70,7 @@ class GameOptions extends React.Component {
       ...initialState,
       playerOneScore: this.state.playerOneScore,
       playerTwoScore: this.state.playerTwoScore,
-      gameVariant: this.state.gameVariant,
+      gameMode: this.state.gameMode,
     });
   };
 
@@ -91,7 +91,7 @@ class GameOptions extends React.Component {
     let PlayerTwoSelection = null;
 
     if (
-      this.state.gameVariant === player.multi &&
+      this.state.gameMode === player.multi &&
       this.state.playerOneSelection
     ) {
       PlayerOneSelection = this.state.playerOneSelection;
@@ -102,7 +102,7 @@ class GameOptions extends React.Component {
       });
     }
 
-    if (this.state.gameVariant === player.single) {
+    if (this.state.gameMode === player.single) {
       PlayerOneSelection = selection;
       PlayerTwoSelection = this.randomChoice();
     }
@@ -157,7 +157,7 @@ class GameOptions extends React.Component {
       this.state.timer === 3 &&
       this.state.playerOneSelection &&
       !this.state.playerTwoSelection &&
-      this.state.gameVariant === player.multi
+      this.state.gameMode === player.multi
     ) {
       this.inervalId = setInterval(() => {
         if (this.state.timer === 1) {
@@ -190,7 +190,7 @@ class GameOptions extends React.Component {
       timer,
       winnerStatus,
       winnerText,
-      gameVariant,
+      gameMode,
     } = this.state;
     return (
       <div className="container">
@@ -233,7 +233,7 @@ class GameOptions extends React.Component {
             )}
             {playerOneSelection &&
               !playerTwoSelection &&
-              gameVariant === player.multi && (
+              gameMode === player.multi && (
                 <>
                   {isTimerOn ? (
                     <div className="game-option__timer">
@@ -273,7 +273,7 @@ class GameOptions extends React.Component {
 
             {playerOneSelection && playerTwoSelection && (
               <>
-                {gameVariant === player.single && (
+                {gameMode === player.single && (
                   <div className="game-option__items">
                     <div
                       className={`game-option__item ${
@@ -328,7 +328,7 @@ class GameOptions extends React.Component {
                   </div>
                 )}
 
-                {gameVariant === player.multi && (
+                {gameMode === player.multi && (
                   <>
                     {isTimerOn ? (
                       <div className="game-option__timer">

@@ -1,11 +1,11 @@
-.select-game-variant {
+.select-game-mode {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  .select-game-variant__text{
+  .select-game-mode__text{
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;

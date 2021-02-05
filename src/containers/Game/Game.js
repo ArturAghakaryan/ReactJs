@@ -14,7 +14,7 @@ const player = {
 const initialState = {
   playerOneName: null,
   playerTwoName: null,
-  gameVariant: null,
+  gameMode: null,
 };
 
 class Game extends React.Component {
@@ -22,24 +22,22 @@ class Game extends React.Component {
     ...initialState,
     InputOnePlayerRef: React.createRef(),
     InputTwoPlayerRef: React.createRef(),
-    isError:false,
+    isError: false,
   };
 
   restartGame = () => {
     this.setState({
       ...initialState,
-      isError:false
+      isError: false,
     });
   };
 
   sendName = (input) => {
-
-    if(!input.current.value.trim()){
-      console.log(this.state.isError)
+    if (!input.current.value.trim()) {
+      console.log(this.state.isError);
       return this.setState({
         isError: true,
       });
-    
     }
 
     if (this.state.playerOneName === null) {
@@ -55,15 +53,15 @@ class Game extends React.Component {
     }
   };
 
-  selectVariantGame = (variant) => {
+  selectModeGame = (mode) => {
     this.setState({
-      gameVariant: variant,
+      gameMode: mode,
     });
   };
 
   render() {
     const {
-      gameVariant,
+      gameMode,
       InputOnePlayerRef,
       InputTwoPlayerRef,
       playerOneName,
@@ -72,42 +70,45 @@ class Game extends React.Component {
     } = this.state;
     return (
       <div className="container">
-        {gameVariant !== null && (
+        {gameMode !== null && (
           <Button className="restart-game" onClick={this.restartGame}>
             Restart game
           </Button>
         )}
-        {gameVariant === player.single && playerOneName !== null && (
-          <GameOptions playerOneName={playerOneName} gameVariant={gameVariant}/>
+        {gameMode === player.single && playerOneName !== null && (
+          <GameOptions
+            playerOneName={playerOneName}
+            gameMode={gameMode}
+          />
         )}
 
-        {gameVariant === player.multi &&
+        {gameMode === player.multi &&
           playerOneName !== null &&
           playerTwoName !== null && (
             <GameOptions
               playerOneName={playerOneName}
               playerTwoName={playerTwoName}
-              gameVariant={gameVariant}
+              gameMode={gameMode}
             />
           )}
 
-        <div className="select-game-variant">
-          {gameVariant === null ? (
+        <div className="select-game-mode">
+          {gameMode === null ? (
             <>
-              <div className="select-game-variant__text">
-                Please select your game variant !
+              <div className="select-game-mode__text">
+                Please, select your game mode!
               </div>
-              <div className="select-game-variant__buttons">
+              <div className="select-game-mode__buttons">
                 <Button
                   onClick={() => {
-                    this.selectVariantGame(player.single);
+                    this.selectModeGame(player.single);
                   }}
                 >
                   One player
                 </Button>
                 <Button
                   onClick={() => {
-                    this.selectVariantGame(player.multi);
+                    this.selectModeGame(player.multi);
                   }}
                 >
                   Two player
@@ -116,11 +117,13 @@ class Game extends React.Component {
             </>
           ) : (
             <>
-              {gameVariant === player.single && (
+              {gameMode === player.single && (
                 <>
-                  <div className="select-game-variant__text">
-                    Please entrey your name ... !
-                    {isError && (<span className="is-error">Name is required</span>)}
+                  <div className="select-game-mode__text">
+                    Please, enter your name!
+                    {isError && (
+                      <span className="is-error">Name is required</span>
+                    )}
                   </div>
                   <div>
                     <Input
@@ -140,13 +143,15 @@ class Game extends React.Component {
                 </>
               )}
 
-              {gameVariant === player.multi && (
+              {gameMode === player.multi && (
                 <>
                   {playerOneName === null && (
                     <>
-                      <div className="select-game-variant__text">
-                        Please entrey player one name ... !
-                        {isError && (<span className="is-error">Name is required</span>)}
+                      <div className="select-game-mode__text">
+                        Please, enter player one name!
+                        {isError && (
+                          <span className="is-error">Name is required</span>
+                        )}
                       </div>
                       <div>
                         <Input
@@ -168,9 +173,11 @@ class Game extends React.Component {
 
                   {playerOneName !== null && playerTwoName === null && (
                     <>
-                      <div className="select-game-variant__text">
-                        Please entrey player two name ... !
-                        {isError && (<span className="is-error">Name is required</span>)}
+                      <div className="select-game-mode__text">
+                        Please, enter player two name!
+                        {isError && (
+                          <span className="is-error">Name is required</span>
+                        )}
                       </div>
                       <div>
                         <Input
